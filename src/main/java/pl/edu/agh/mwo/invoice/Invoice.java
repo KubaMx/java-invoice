@@ -9,11 +9,11 @@ public class Invoice {
     private Collection<Product> products;
 
     public void addProduct(Product product) {
-        // TODO: implement
+        this.products.add(product);
     }
 
-    public void addProduct(Product product, Integer quantity) {
-        // TODO: implement
+    public void addProduct(Product product, Integer quantity){
+        quantity.
     }
 
     public BigDecimal getSubtotal() {
