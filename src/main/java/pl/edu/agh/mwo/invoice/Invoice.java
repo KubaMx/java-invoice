@@ -1,13 +1,14 @@
 package pl.edu.agh.mwo.invoice;
 
+import pl.edu.agh.mwo.invoice.product.Product;
+
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import pl.edu.agh.mwo.invoice.product.Product;
-
 public class Invoice {
     private Map<Product, Integer> products = new HashMap<Product, Integer>();
+    private int invoiceNumber;
 
     public void addProduct(Product product) {
         addProduct(product, 1);
@@ -40,5 +41,20 @@ public class Invoice {
             totalGross = totalGross.add(product.getPriceWithTax().multiply(quantity));
         }
         return totalGross;
+    }
+
+    public void setInvoiceNumber(int invoiceNumber) {
+        this.invoiceNumber = invoiceNumber;
+    }
+
+    public void print(){
+        //String expectedOutput  = "Invoice nr: 1\nPos. 1: Owoce; Quantity: 200\nNumber of pos.: 1";
+        System.out.println("Invoice nr: %d".formatted(invoiceNumber));
+
+        for (Product product : products.keySet()) {
+            
+            BigDecimal quantity = new BigDecimal(products.get(product));
+            totalGross = totalGross.add(product.getPriceWithTax().multiply(quantity));
+        }
     }
 }
