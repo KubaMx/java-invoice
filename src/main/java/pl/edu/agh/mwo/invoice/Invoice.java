@@ -21,7 +21,7 @@ public class Invoice {
         products.put(product, quantity);
     }
 
-    public BigDecimal getNetTotal(){
+    public BigDecimal getNetTotal() {
         BigDecimal totalNet = BigDecimal.ZERO;
         for (Product product : products.keySet()) {
             BigDecimal quantity = new BigDecimal(products.get(product));
@@ -47,11 +47,11 @@ public class Invoice {
         this.invoiceNumber = invoiceNumber;
     }
 
-    public void print(){
+    public void print() {
         System.out.printf("Invoice nr: %d\n", invoiceNumber);
 
         int counter = 1;
-        for (Product product : products.keySet()){
+        for (Product product : products.keySet()) {
             BigDecimal quantity = new BigDecimal(products.get(product));
             System.out.printf("Pos. %d: %s; Quantity: %s; Unit price: %s\n",
                     counter, product.getName(), quantity, product.getPriceWithTax());
