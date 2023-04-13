@@ -48,13 +48,16 @@ public class Invoice {
     }
 
     public void print(){
-        //String expectedOutput  = "Invoice nr: 1\nPos. 1: Owoce; Quantity: 200\nNumber of pos.: 1";
-        System.out.println("Invoice nr: %d".formatted(invoiceNumber));
+        System.out.printf("Invoice nr: %d\n", invoiceNumber);
 
+        int counter = 1;
         for (Product product : products.keySet()) {
-            
             BigDecimal quantity = new BigDecimal(products.get(product));
-            totalGross = totalGross.add(product.getPriceWithTax().multiply(quantity));
+            System.out.printf("Pos. %d: %s; Quantity: %s; Unit price: %s\n", counter, product.getName(), quantity, product.getPriceWithTax());
+            counter++;
         }
+
+        System.out.printf("Number of pos.: %d\n", products.size());
+        System.out.printf("Total price: %s", getGrossTotal());
     }
 }

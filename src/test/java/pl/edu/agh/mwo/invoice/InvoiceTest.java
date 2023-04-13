@@ -136,7 +136,7 @@ public class InvoiceTest {
 
         invoice.print();
 
-        String expectedOutput  = "Invoice nr: 1\nPos. 1: Owoce; Quantity: 1; Price: 200\nNumber of pos.: 1\nTotal price: 200";
+        String expectedOutput  = "Invoice nr: 1\nPos. 1: Owoce; Quantity: 1; Unit price: 200\nNumber of pos.: 1\nTotal price: 200";
 
         Assert.assertEquals(expectedOutput, outContent.toString());
     }
